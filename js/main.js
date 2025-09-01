@@ -1,11 +1,18 @@
-// main.js
-import { addTransaction, initTransactionForm } from './transactions.js';
-import { updateSummary } from './summary.js';
-import { showAISuggestions } from './ai.js';
+import { addTransaction } from "./transactions.js";
 
-// Initialize the app
-document.addEventListener('DOMContentLoaded', () => {
-    initTransactionForm();
-    updateSummary();
-    showAISuggestions();
+document.getElementById("transactionForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const transaction = {
+    amount: parseFloat(document.getElementById("amount").value),
+    type: document.getElementById("type").value,
+    category: document.getElementById("category").value,
+    date: document.getElementById("date").value,
+    notes: document.getElementById("notes").value
+  };
+
+  addTransaction(transaction);
+
+  // Reset form
+  e.target.reset();
 });
