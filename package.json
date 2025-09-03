@@ -5,6 +5,7 @@
     "tailwindcss": "^3.4.17"
   },
    "scripts": {
-    "dev": "npx tailwindcss -i ./index.css -o ./dist/output.css --watch"
+    "dev": "npx tailwindcss -i ./index.css -o ./dist/output.css --watch",
+    "build": "npx tailwindcss -i ./index.css -o ./dist/output.css --minify"
   }
 }
