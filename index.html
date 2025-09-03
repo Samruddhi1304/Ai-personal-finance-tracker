@@ -9,15 +9,15 @@
 <body class="bg-gray-900 text-white font-sans">
 
   <!-- Main Container -->
-  <div class="min-h-screen p-6 grid grid-cols-12 gap-6">
+  <div class="min-h-screen p-4 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
 
     <!-- Left Main Section -->
-    <div class="col-span-9 space-y-6">
+    <div class="lg:col-span-9 space-y-6">
 
       <!-- Transaction Form -->
       <div class="bg-gray-800 rounded-2xl p-6 shadow">
         <h2 class="text-xl font-bold mb-4">➕ Add New Transaction</h2>
-        <form id="transactionForm" class="grid grid-cols-2 gap-4">
+        <form id="transactionForm" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <!-- Amount -->
           <div>
             <label class="block text-gray-400 mb-1">Amount ($)</label>
@@ -43,15 +43,15 @@
             <input type="date" id="date" class="w-full px-3 py-2 rounded-lg bg-gray-700 text-white" required>
           </div>
           <!-- Notes -->
-          <div class="col-span-2">
+          <div class="sm:col-span-2">
             <label class="block text-gray-400 mb-1">Notes</label>
             <input type="text" id="notes" placeholder="Optional..." 
               class="w-full px-3 py-2 rounded-lg bg-gray-700 text-white">
           </div>
           <!-- Button -->
-          <div class="col-span-2 flex justify-end">
+          <div class="sm:col-span-2 flex justify-end">
             <button type="submit" 
-              class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg font-semibold">
+              class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg font-semibold w-full sm:w-auto">
               Add Transaction
             </button>
           </div>
@@ -61,7 +61,7 @@
       <!-- Dashboard Section -->
       <div>
         <h1 class="text-2xl font-bold mb-4">My Dashboard 💳</h1>
-        <div class="grid grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div class="bg-gray-800 rounded-2xl p-4 shadow">
             <p class="text-gray-400">Total Balance</p>
             <h2 id="totalBalance" class="text-xl font-bold">$0.00</h2>
@@ -76,10 +76,12 @@
           </div>
         </div>
       </div>
-     <div class="grid grid-cols-2 gap-6">
+
+      <!-- Stats + Advice -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Statistics Section -->
         <div class="bg-gray-800 rounded-2xl p-6 shadow">
-          <div class="flex justify-between items-center mb-4">
+          <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 gap-2">
             <h2 class="text-lg font-semibold">Statistics</h2>
             <select id="filterSelect" class="bg-gray-700 text-white px-3 py-1 rounded-lg">
               <option value="all">All Transactions</option>
@@ -87,7 +89,7 @@
               <option value="expenses">Expenses</option>
             </select>
           </div>
-          <canvas id="statsChart" class="w-60 h-48 mx-auto"></canvas>
+          <canvas id="statsChart" class="w-full h-48 sm:w-72 sm:h-72 lg:w-56 lg:h-56 mx-auto"></canvas>
         </div>
 
         <!-- Advice Section -->
@@ -100,7 +102,7 @@
     
 
     <!-- Right Sidebar -->
-    <div class="col-span-3 space-y-6">
+    <div class="lg:col-span-3 space-y-6">
       <div class="bg-gray-800 rounded-2xl p-6 shadow text-center">
         <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-4 text-left">
           <p>Total Balance</p>
@@ -116,14 +118,15 @@
         </div>
         <button id="seeAllBtn" class="mt-3 text-blue-400">See all transactions</button>
       </div>
+
       <div id="allTransactions" class="bg-gray-800 rounded-2xl p-6 shadow mt-6 hidden">
         <h2 class="font-semibold mb-3">Transactions</h2>
         <ul id="transactionList" class="space-y-2"></ul>
       </div>
     </div>
   </div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.js"></script>
-<script type="module" src="./js/main.js"></script>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.js"></script>
+  <script type="module" src="./js/main.js"></script>
 </body>
 </html>

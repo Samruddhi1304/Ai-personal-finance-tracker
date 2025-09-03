@@ -90,7 +90,7 @@ function renderTransactionList() {
       <div>
         <span>${t.date} - ${t.category}</span>
         <br>
-        <span class="${t.type === "income" ? "text-green-400" : "text-red-400"} ml-2">
+        <span class="text-sm ${t.type === "income" ? "text-green-400" : "text-red-400"}" ml-2">
           $${t.amount}
         </span>
       </div>
