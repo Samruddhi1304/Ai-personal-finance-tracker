@@ -48,15 +48,14 @@ Track your income and expenses, view statistics, and get smart advice on your sp
 ## Project Structure
 
 ```
-├── index.html
-├── dist/
-│   └── output.css
-├── js/
-│   ├── main.js
-│   ├── ai.js
-│   └── transactions.js
-├── tailwind.config.js
-├── package.json
+dist/
+ ├── index.html
+ ├── output.css
+ └── js/
+     ├── main.js
+     ├── ai.js
+     └── transactions.js
+
 ```
 
 ---
