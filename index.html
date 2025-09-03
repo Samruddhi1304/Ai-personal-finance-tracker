@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Finance Dashboard</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./dist/output.css">
 </head>
 <body class="bg-gray-900 text-white font-sans">
 
@@ -76,53 +76,35 @@
           </div>
         </div>
       </div>
-      <!-- Statistic / Chart Section -->
-      <div class="bg-gray-800 rounded-2xl p-6 shadow">
-        <div class="flex justify-between items-center mb-4">
-          <h2 class="text-lg font-semibold">Statistics</h2>
-          <select class="bg-gray-700 text-white px-3 py-1 rounded-lg">
-            <option>All Transactions</option>
-            <option>Income</option>
-            <option>Expenses</option>
-          </select>
+     <div class="grid grid-cols-2 gap-6">
+        <!-- Statistics Section -->
+        <div class="bg-gray-800 rounded-2xl p-6 shadow">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-lg font-semibold">Statistics</h2>
+            <select id="filterSelect" class="bg-gray-700 text-white px-3 py-1 rounded-lg">
+              <option value="all">All Transactions</option>
+              <option value="income">Income</option>
+              <option value="expenses">Expenses</option>
+            </select>
+          </div>
+          <canvas id="statsChart" class="w-60 h-48 mx-auto"></canvas>
         </div>
-        <div class="h-48 flex items-center justify-center text-gray-500">
-          📊 Chart Coming Soon
-        </div>
-      </div>
 
-      <!-- Goals & Savings -->
-      <div class="grid grid-cols-2 gap-6">
+        <!-- Advice Section -->
         <div class="bg-gray-800 rounded-2xl p-6 shadow">
-          <h2 class="font-semibold mb-3">Goals</h2>
-          <p class="text-gray-400">Build a House</p>
-          <div class="w-full bg-gray-700 h-3 rounded-full mb-3">
-            <div class="bg-green-500 h-3 rounded-full w-3/4"></div>
-          </div>
-          <p class="text-gray-400">Wedding Savings</p>
-          <div class="w-full bg-gray-700 h-3 rounded-full">
-            <div class="bg-blue-500 h-3 rounded-full w-11/12"></div>
-          </div>
-        </div>
-        <div class="bg-gray-800 rounded-2xl p-6 shadow">
-          <h2 class="font-semibold mb-3">Other Savings</h2>
-          <div class="h-32 flex items-center justify-center text-gray-500">
-            📊 Bar Chart Coming Soon
-          </div>
+          <h2 class="text-lg font-semibold mb-4">Advice on Spending</h2>
+          <p id="aiAdvice" class="text-gray-300 text-sm leading-relaxed">Loading advice...</p>
         </div>
       </div>
     </div>
+    
 
     <!-- Right Sidebar -->
     <div class="col-span-3 space-y-6">
       <div class="bg-gray-800 rounded-2xl p-6 shadow text-center">
-        <img class="w-16 h-16 rounded-full mx-auto mb-3" src="https://via.placeholder.com/80" alt="Profile">
-        <h2 class="font-semibold">John Doe</h2>
-        <p class="text-gray-400 text-sm mb-3">Exclusive Card</p>
         <div class="bg-gradient-to-r from-orange-500 to-red-500 rounded-xl p-4 text-left">
           <p>Total Balance</p>
           <h2 id="profileBalance" class="text-lg font-bold">$0.00</h2>
-          <p class="text-sm">Exp: 07/23</p>
         </div>
       </div>
 
@@ -140,7 +122,7 @@
       </div>
     </div>
   </div>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.js"></script>
 <script type="module" src="./js/main.js"></script>
 
 </body>
